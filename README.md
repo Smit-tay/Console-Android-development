@@ -18,6 +18,7 @@ It seems that at a minimum we will require:
 3. Android SDK - version unknown
 4. Android NDK - version unknown
 5. Python - version unknown
+6. C++ compiler - unknown version
 
 Python isn't explicitely mentioned in most of the references I consulted, but, I'm pretty surer it's needed.
 
@@ -33,7 +34,13 @@ localhost:~> javac --version
 javac 11.0.21
 localhost:~> python3 --version
 Python 3.11.7
-localhost:~> 
+localhost:~> g++ --version
+g++ (SUSE Linux) 13.2.1 20231130 [revision 741743c028dc00f27b9c8b1d5211c1f602f2fddd]
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
 ```
 SO, cmake and the Java sdk are already installed.  We need the Android stuff.
 
