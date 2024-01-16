@@ -54,3 +54,5 @@ The SDK tools isn't actually an SDK in the usual sense.  In order to install the
 Don't forget, Android is Java at heart, and Android developers are really just over-enthusiastic Java developers.
 **EVERYTHING** in java is more complicated than it needs to be, just accept it.
 
+### MORE TO FOLLOW
+
