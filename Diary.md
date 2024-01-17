@@ -80,7 +80,7 @@ localhost:~/cmdline-tools/latest> sudo zypper install java-17-openjdk java-17-op
 And as if by magic, the sdkmanager responds to "sdkmanager --list" with hundreds of lines of available packages. Now, how do I determine which I require ?
 Looking through the output, I notice many lines looking something like what I expect to see
 ```
-platforms;android-10                                                                     | 2             | Android SDK Platform 10
+platforms;android-10             | 2             | Android SDK Platform 10
 ```
 The instructions for the sdkmanager aren't particularly enlightening in this regard, but, I am fairly confident that "Android SDK Platform XX" is what I am looking for.
 It's not at all clear if I should install the latest version - internet search !
