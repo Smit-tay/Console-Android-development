@@ -110,6 +110,19 @@ bin/sdkmanager "build-tools;34.0.0" "platforms;android-34" "cmdline-tools;latest
 ```
 
 And, the SDK Manager downloaded stuff **into my home directory !**.  Why there ?  Why not underneath the current directory ?  Why, why why 
+ANyway, I now have the following directories (within my $HOME)
+```
+drwxr-xr-x 1 me me  360 Jan 16 09:47 android-ndk-r26b
+drwxr-xr-x 1 me me   20 Jan 17 14:47 platforms
+drwxr-xr-x 1 me me  288 Jan 17 14:47 licenses
+drwxr-xr-x 1 me me   12 Jan 17 14:47 build-tools
+drwxr-xr-x 1 me me  246 Jan 17 14:47 platform-tools
+drwxr-xr-x 1 me me   28 Jan 17 14:47 cmdline-tools
+```
 
+The NDK is from my manual download.  The cmdline-tools is also from my manual download, but, has been updated.
+The platform directory appear to contain the actual SDK (if you can call it that), since it contains a subdirectory named "android-34"
+
+So, I am halfway confident I am ready to start putting together an application.
 
 
