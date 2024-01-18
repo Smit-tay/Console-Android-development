@@ -125,4 +125,76 @@ The platform directory appear to contain the actual SDK (if you can call it that
 
 So, I am halfway confident I am ready to start putting together an application.
 
+To start with we want a somewhat conformant directory structure.  Because this is essentially a Java app, we have to have an unnecessarily complicated structure, or the compiler will complain (unless of course we provide endless build options and ENV variables before hand).
+
+I am working from within a subdirectory of my main development directory ( '/home/me/dev' - where all my projects live).  That subdirectory is named Hello-Android, since it's simple, classical and timeless.  Within that subdirectory, I will want to make the following:
+
+```
+# First create semi-obligatory directories
+mkdir -p res/layout java/hello build/gen
+
+# Now, create some obligatory files 
+touch AndroidManifest.xml ./res/layout/activity_main.xml ./java/hello/MainActivity.java
+```
+
+Now we can edit the three files we created
+
+The [AndroidManifest.xml](https://developer.android.com/guide/topics/manifest/manifest-intro) file is a sensible idea, and mandatory. Luckily, for now, we don't need to know much about it, other than the absolute basics.  Ours will look like this:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="hello"
+          versionCode="1"
+          versionName="0.1">
+    <uses-sdk android:minSdkVersion="34"/>
+    <application android:label="Hello">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+```
+
+Next is the [layout](https://developer.android.com/develop/ui/views/layout/declaring-layout) file, also obligatory for reasons that aren't clear - ours is named res/layout/activity_main.xml and obeys the usual weird Java naming convention with underscores
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/my_text"/>
+</LinearLayout>
+```
+
+And, finally, the java code for our trivial application in java/hello/MainActivity.java
+
+```
+package hello;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        TextView text = (TextView)findViewById(R.id.my_text);
+        text.setText("Hello, world!");
+    }
+}
+```
 
