@@ -237,3 +237,43 @@ And, it stuck.
 My linux distro doesn't provide gradle as a standard package.  In fact, from what I can tell, not many do.  It looks liek the usual way to get Gradle is to download an archive from the Gradle website, unzip it into the location of your choice, set a few env. variables, then hope it works.  What I particularly like is the suggestion that I don't use my linux distro package manager, but instead use something called SDKMAN.  So, again, why use existing tools when you can just invent newer, immature tools to make a mess of the same process.  Well, I'm not installing something so that I can install something else.  Who thinks that's sensible ?
 
 Let's do it [manually](https://docs.gradle.org/current/userguide/installation.html#ex-installing-manually).
+
+Assuming you have managed to follow the seemingly endless links and have found the archive for the latest gradle version, you might do something like this.
+```
+cd ~
+mkdir gradle
+unzip -d ./gradle ~/Downloads/gradle-8.5-bin.zip 
+gradle/gradle-8.5/bin/gradle -v
+```
+Now, you might be tempted to follow the directions about how to generate a [gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html#sec:adding_wrapper), but, don't be surprised when you see this:
+```
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Directory '/home/jack/dev/Hello-Android' does not contain a Gradle build.
+
+A Gradle build should contain a 'settings.gradle' or 'settings.gradle.kts' file in its root directory. It may also contain a 'build.gradle' or 'build.gradle.kts' file.
+
+To create a new Gradle build in this directory run 'gradle init'
+
+For more information about the 'init' task, please refer to https://docs.gradle.org/8.5/userguide/build_init_plugin.html in the Gradle documentation.
+```
+Nice !
+Not only don't the instructions work, the link to the [init](https://docs.gradle.org/8.5/userguide/build_init_plugin.html) makes it clear that there's no "native" support for Android within Gradle.  So, if like me, you tried
+```
+~/gradle/gradle-8.5/bin/gradle init
+
+Select type of project to generate:
+  1: basic
+  2: application
+  3: library
+  4: Gradle plugin
+Enter selection (default: basic) [1..4] 
+
+```
+and are now wondering wht type of project you are supposed to choose, well, let's find out and choose "basic"
+which then requires that you answer other questions that you very likely won't understand, and can't find reasonable answers for on the InterTubes.  At this poitn you're probably ready to give up - and, why shouldn't you feel that way.  It's clear that trying to get anything done on the commandline is going to be a waste of time.
+
+But - we already know how to generate the APK file , why can't we automate it somehow nicely ?
